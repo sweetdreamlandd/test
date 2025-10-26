@@ -1,0 +1,488 @@
+:root{
+  --bg-1:#0e0e10;
+  --bg-2:#1a1b1d;
+  --text:#e8e9ec;
+  --muted:#b9bdc5;
+  --accent:#68e0cf;      /* xanh ngọc headline */
+  --cta:#c9302c;         /* đỏ nút */
+  --cta-press:#a52522;
+  --card:#ffffff1a;      /* kính mờ */
+  --card-edge:#ffffff4a; /* viền trong glass */
+  --shadow: 0 20px 50px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--text);
+  font-family:"Montserrat",system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+  background: linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+.bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* ảnh luôn phủ hết */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container{
+  width:100%;
+  max-width:440px;
+  margin:0 auto;
+  padding:18px 16px 48px;
+}
+
+/* === Glass plaque === */
+/* Viền ngoài sáng bo 2 góc */
+.rim {
+border: 16px solid #bcd7db;
+  position: relative;           /* màu viền sáng */
+  border-radius: 32px 0 32px 0;       /* bo trên-trái & dưới-phải */
+  padding: 24px 6px;                      /* độ dày viền */
+  box-shadow:
+    0 0 26px rgba(255,255,255,0.45),  /* ánh sáng trắng */
+    0 10px 28px rgba(0,0,0,0.3);      /* bóng tối */
+  display: inline-block;
+}
+
+
+/* Panel trong – KHÔNG MÀU, KHÔNG NỀN */
+.panel {
+              /* trong suốt hoàn toàn */
+  border-radius: 26px 0 26px 0;       /* khớp với khung ngoài */
+        
+  text-align: center;
+  color: #fff;
+  box-shadow: none;                   /* không đổ bóng */
+  font-family: "Montserrat", system-ui, sans-serif;
+}
+
+/* Chữ vẫn giữ kiểu đậm trắng */
+.panel h1 {
+  margin: 0 0 0;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.22;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.panel .desc {
+  margin: 12px 6px 6px 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #f1f1f1;
+}
+
+.panel .zalo {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.45;
+  color: #f7fafc;
+}
+.arrow-down img {
+  width: 32px;
+  height: auto;
+  filter: invert(1);  /* đảo ngược màu — đen thành trắng */
+}
+
+.icon-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #1f2125;                  /* nền tối */
+  border: 1px solid #2b2e36;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45), inset 0 1px 0 #ffffff10;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.55);
+}
+
+.icon img {
+  width: 28px;          /* kích thước logo */
+  height: auto;
+  object-fit: contain;
+  filter: brightness(1.1) contrast(1.1); /* làm logo sáng hơn */
+}
+
+
+.tagline{
+  margin:8px 0 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:.92rem;
+}
+.icon-watch,.icon-gem{filter:drop-shadow(0 2px 2px #00000066)}
+
+/* === Icons row === */
+.contact-quick{
+  margin-top:6px;
+  display:grid; place-items:center;
+}
+.hand{font-size:34px; margin:6px 0 10px; opacity:.85}
+.icon-list{
+  display:flex; gap:14px; padding:0; margin:0;
+  list-style:none;
+}
+.icon{
+  display:grid; place-items:center;
+  width:52px; height:52px; border-radius:14px;
+  background:#1f2125;
+  border:1px solid #2b2e36;
+  box-shadow: 0 8px 18px rgba(0,0,0,.45), inset 0 1px 0 #ffffff10;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+.icon:hover{ transform:translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,.5) }
+.icon svg{width:28px;height:28px; fill:#fff}
+.icon.gmail{background:#ea433544}
+.icon.phone{background:#34a85333}
+.icon.facebook{background:#1877f233}
+.icon.zalo{background:#ffffff18; color:#fff; font-weight:700}
+.zalo-text{font-size:.95rem; letter-spacing:.4px}
+
+/* === Value prop + CTA === */
+.value-prop{
+  margin:18px 0 12px;
+  text-align:center;
+}
+.vp-title{
+  color:var(--accent);
+  font-weight:600;
+  font-size:1.02rem;
+  line-height:1.45;
+  margin:0 auto 6px;
+  text-transform:uppercase;
+}
+.vp-sub{
+    
+  color:var(--accent);
+  margin:0 auto 14px;
+  font-size:1rem;
+}
+.vp-cta-hint{ 
+    text-decoration-line: underline;
+  text-decoration-color: #ffffff;   /* màu gạch chân */
+  text-decoration-thickness: 2px;   /* độ dày */
+  text-underline-offset: 4px;
+    color:#eaeaea; opacity:.9; margin:6px 0 4px }
+.arrow-down{ font-size:36px; line-height:1; margin:2px 0 10px }
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height:48px; padding:0 20px; border-radius:999px;
+  font-weight:700; letter-spacing:.2px;
+  text-decoration:none; color:#fff;
+}
+.btn-primary{
+  background: #721716;
+  border-radius: 20px;
+  /* box-shadow:0 12px 22px rgba(201,48,44,.45); */
+  margin-bottom: 30px;
+}
+.btn-primary:active{ background:var(--cta-press); transform:translateY(1px) }
+.btn-primary p{
+    text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.4),     /* bóng chính mềm */
+    0 4px 12px rgba(0, 0, 0, 0.6); 
+}
+/* === Commitments === */
+.commitments{ 
+    margin:22px 0 8px }
+.service-commitment {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.service-commitment .text_header_sc
+{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+.service-commitment .text_header_sc p
+{
+    font-weight: 500;
+    text-size: 20px;
+     text-decoration-line: underline;
+  text-decoration-color: #ffffff;   /* màu gạch chân */
+  text-decoration-thickness: 2px;   /* độ dày */
+  text-underline-offset: 4px;
+     opacity:.9; margin:6px 0 4px;
+}
+/* Danh sách dấu chấm trắng */
+.commit-list {
+  list-style-type: disc;
+  padding-left: 24px;
+  margin: 0; /* loại bỏ margin mặc định của <ul> */
+}
+
+.commit-list li {
+  margin-bottom: 6px; /* khoảng cách đều giữa các dòng */
+  color: #f2f2f2;
+}
+
+/* Dòng mũi tên – canh đều với các li ở trên */
+.commit-arrow {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-left: 6px;  /* canh theo vị trí dấu chấm */
+  margin-top: 6px;   /* bằng đúng khoảng cách giữa các li */
+}
+
+.commit-arrow img {
+  width: 12px;
+  height: auto;
+  margin-top: 8px;
+  filter: invert(1);
+}
+
+/* Hotline */
+.hotline {
+   display: flex;
+  justify-content: center;   /* căn giữa theo chiều ngang */
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.hotline img {
+  width: 18px;
+  height: auto;
+}
+
+.hotline span {
+  font-weight: 700;
+}
+
+.showcase{
+  margin:14px 0 6px; border-radius:18px; overflow:hidden;
+  border:1px solid #2b2e36; box-shadow: var(--shadow);
+  background:#0f1012;
+}
+.showcase img{ width:100%; display:block; object-fit:cover }
+
+/* ====== Info section (đúng layout theo ảnh) ====== */
+.info-grid{
+  margin: 22px 0 0;
+  color:#fff;
+  font-family:"Montserrat",sans-serif;
+}
+
+/* Hàng địa chỉ: icon + text cùng hàng */
+.info-row{ margin-bottom: 14px; }
+.info-row .info-item{
+  display:flex; align-items:center; gap:10px;
+  padding: 4px 0;
+}
+.info-row .info-icon{
+  width:20px; height:20px; display:inline-grid; place-items:center;
+  font-size:18px; opacity:.95;
+}
+.info-row .info-item > div{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+}
+.info-row .info-label{ color:#ffffff; font-weight:700; font-size:1rem; }
+.info-row .info-label::after{ content: ":"; margin-left:4px; }
+.info-row .info-text{ color:#fff; }
+
+/* Tiêu đề phụ */
+.info-block__title{
+  margin: 8px 0 10px;
+  font-weight: 800;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+}
+
+/* Khối GIAO HÀNG TOÀN QUỐC: mỗi dòng 1 hàng ngang + đường phân tách mảnh */
+.info-block{ margin-top: 10px; padding: 0; background:transparent; border:none; box-shadow:none; }
+.info-block .info-item{
+  display:flex; align-items:center; gap:10px;
+  padding: 10px 0;
+}
+.info-block .info-item + .info-item{
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.info-block .info-icon{
+  width:20px; height:20px; display:inline-grid; place-items:center; font-size:18px;
+}
+.info-block .info-item > div{
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+}
+.info-block .info-label{ color:#ffffff; font-weight:700; }
+.info-block .info-label::after{ content: ":"; margin-left:4px; }
+.info-block .info-text a{
+  color:#fff; text-decoration:none;
+}
+
+/* CHÍNH SÁCH: 2 cột × 2 dòng, icon nhỏ bên trái */
+.policies{ margin-top: 18px; background:transparent; border:none; box-shadow:none; }
+.policies .policy-list{
+  display:grid; grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 10px 28px; list-style:none; padding:0; margin:0;
+}
+.policies .policy-list li{
+  display:flex; align-items:center; gap:10px;
+  color:#e8e8e8; font-size:.95rem; line-height:1.6;
+}
+.policies .policy-list .info-icon{
+  width:18px; height:18px; display:inline-grid; place-items:center; font-size:16px; opacity:.95;
+}
+
+/* Liên kết chung trong khối thông tin */
+.info-text a:hover{ text-decoration: underline; text-underline-offset: 3px; }
+
+/* Footer giữ nguyên */
+.footer {
+  text-align: center;
+  margin: 18px 0 0;
+  color: #abb0b7;
+  font-size: 0.85rem;
+}
+
+/* === Accessibility helpers === */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================
+   Responsive
+@media (max-width: 359px){
+  .container{ padding:14px 12px 40px; }
+  .panel h1{ font-size:28px; }
+  .panel .desc{ font-size:14px; }
+  .icon{ width:48px; height:48px; }
+  .icon img{ width:24px; }
+  .commit-arrow img{ width:10px; }
+}
+
+/* iPad / Tablet (600px–991px) */
+@media (min-width:600px) and (max-width:991px){
+  .container{ max-width:720px; padding:28px 28px 72px; }
+
+  /* Khung logo: tăng viền & bo góc một chút cho cân đối */
+  .rim{ border-width:18px; border-radius:36px 0 36px 0; padding:26px 8px; }
+  .panel{ border-radius:30px 0 30px 0; }
+  .panel h1{ font-size:36px; }
+  .panel .desc{ font-size:18px; margin:12px 8px 6px; }
+  .panel .zalo{ font-size:22px; }
+
+  /* Hàng icon liên hệ */
+  .icon{ width:60px; height:60px; }
+  .icon img{ width:30px; }
+
+  /* Headline + CTA */
+  .vp-title{ font-size:1.18rem; }
+  .vp-sub{ font-size:1.06rem; }
+  .btn{ min-height:50px; padding:0 22px; }
+
+  /* Cam kết + Hình: đặt 2 cột vừa mắt */
+  .commitments{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr; /* text hơi rộng hơn ảnh */
+    gap: 20px;
+    align-items:start;
+    margin-top:26px;
+  }
+  .service-commitment{ font-size:14px; }
+  .commit-arrow img{ width:14px; }
+
+  /* Chính sách: vẫn 2 cột, nới khoảng cách */
+  .policy-list{ gap: 12px 32px; }
+
+  /* Info grid: để 1 cột trên tablet (đọc dọc), desktop sẽ lên 2 cột */
+}
+
+/* Laptop / Desktop (≥ 992px) */
+@media (min-width:992px){
+  .container{ max-width:960px; padding:32px 32px 84px; }
+
+  /* Khung logo lớn & thoáng hơn */
+  .rim{ border-width:20px; border-radius:40px 0 40px 0; padding:28px 10px; }
+  .panel{ border-radius:34px 0 34px 0; }
+  .panel h1{ font-size:40px; }
+  .panel .desc{ font-size:20px; }
+  .panel .zalo{ font-size:24px; }
+
+  /* Icons */
+  .icon{ width:64px; height:64px; }
+  .icon img{ width:32px; }
+
+  /* Headline + CTA */
+  .vp-title{ font-size:1.25rem; }
+  .vp-sub{ font-size:1.12rem; }
+  .btn{ min-height:52px; padding:0 24px; }
+
+  /* Cam kết + Hình: 2 cột rộng rãi */
+  .commitments{
+    display:grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 26px;
+    align-items:start;
+    margin:28px 0 8px;
+  }
+  .service-commitment{ font-size:15px; }
+  .showcase{ border-radius:22px; }
+
+  /* Info grid (địa chỉ + giao hàng + chính sách): 2 cột */
+  .info-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 24px;
+  }
+  /* Để “Chính sách” full chiều ngang như ảnh */
+  .policies{ grid-column: 1 / -1; }
+
+  /* Chính sách giữ 2 cột, tăng khoảng thở */
+  .policy-list{ grid-template-columns: repeat(2,1fr); gap: 14px 36px; }
+
+  /* Dòng liên hệ (Hotline/Email) to rõ hơn một chút */
+  .info-block .info-item{ padding:12px 0; }
+  .info-block .info-label{ font-size:1rem; }
+}
+
+/* Desktop lớn (≥1280px) – tùy chọn: chỉ nới container */
+@media (min-width:1280px){
+  .container{ max-width:1120px; }
+}
