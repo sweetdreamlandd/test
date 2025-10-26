@@ -44,8 +44,7 @@ body{
   margin:0 auto;
   padding:18px 16px 48px;
 }
-.hero-card
-{
+.hero-card{
   display: flex;
   align-items: center;
   justify-content: center;
